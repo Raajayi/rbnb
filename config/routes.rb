@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   
   resources :bands, except: :destroy
+  resources :bookings, only: %i[index]
 end
