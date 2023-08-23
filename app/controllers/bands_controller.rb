@@ -14,22 +14,13 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new(band_params)
-    @band.save
-
-
-    # @band = Band.new(band_params)
-
-    # respond_to do |format|
-    #   if @band.save
-    #     format.html { redirect_to band_url(@band), notice: "Band was successfully created." }
-    #     format.json { render :show, status: :created, location: @band }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @band.errors, status: :unprocessable_entity }
-    #   end
-    # end
-
-
+    # TODO Replace User.first with current_user when available
+    @band.user = User.first
+    if @band.save
+      redirect_to bands_path, notice: "Band created!"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
