@@ -1,0 +1,20 @@
+
+<p style="color: green"><%= notice %></p>
+
+<div id="bands">
+  <% @bands.each do |band| %>
+    <div class="card-trip">
+      <img src="<%= band.photo_url %>" style="max-width: 400px" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= band.name %></h2>
+          <p><%= band.genre %></p>
+        </div>
+      </div>
+      <span><%= link_to "View band", band %></span>
+    </div>
+  <% end %>
+</div>
+<br><br>
+<%= link_to "Add band", new_band_path %>
+<br><br>

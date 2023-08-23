@@ -1,0 +1,23 @@
+<h1>New band</h1>
+
+
+<%= simple_form_for(@band) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name, placeholder: "Insert band name" %>
+    <%= f.input :genre, placeholder: "Insert band genre" %>
+    <%= f.input :photo_url, placeholder: "Insert band photo" %>
+    <%= f.input :description, placeholder: "Insert band description" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to bands", bands_path %>
+</div>
