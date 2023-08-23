@@ -38,9 +38,9 @@ Band.create!(name: "Radiohead",
     user: User.third
   )
 
-Booking.create!(start_time: "2.10 PM", end_time: "6.10 PM", user: User.first, band: Band.first)
-Booking.create!(start_time: "4.00 PM", end_time: "8.00 PM", user: User.second, band: Band.second)
-Booking.create!(start_time: "11.00 AM", end_time: "5.00 PM", user: User.third, band: Band.third)
+Booking.create!(start_time: DateTime.new(2019, 8, 10, 4, 10, 9), end_time: DateTime.new(2019, 8, 10, 8, 10, 9), user: User.first, band: Band.first)
+Booking.create!(start_time: DateTime.new(2020, 2, 11, 5, 30, 9), end_time: DateTime.new(2020, 2, 11, 9, 30, 9), user: User.second, band: Band.second)
+Booking.create!(start_time: DateTime.new(2020, 5, 9, 2, 15, 9), end_time: DateTime.new(2020, 5, 9, 6, 15, 9), user: User.third, band: Band.third)
 
 Availability.create!(start_time: "25-12-2018", end_time: "26-12-2018", band: Band.first)
 Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)

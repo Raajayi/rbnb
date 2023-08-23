@@ -1,5 +1,4 @@
 class BandsController < ApplicationController
-
   before_action :set_band, only: :show
 
   def index
@@ -32,5 +31,4 @@ class BandsController < ApplicationController
   def band_params
     params.require(:band).permit(:name, :description, :photo_url, :genre)
   end
-
 end
