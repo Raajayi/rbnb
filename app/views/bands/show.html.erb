@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card-trip">
+
+  <img src="<%= @band.photo_url %>" style="max-width: 400px" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @band.name %></h2>
+      <p><%= @band.genre %></p>
+      <p><%= @band.description %></p>
+    </div>
+  </div>
+</div>
+
+<div>
+INSERT BOOKING FORM
+</div>
+<br><br>
+<div>
+  <%= link_to "Back to bands", bands_path %>
+  <%#= link_to "Edit this band", edit_band_path(@band) %>
+</div>
