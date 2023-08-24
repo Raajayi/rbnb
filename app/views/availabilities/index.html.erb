@@ -1,0 +1,12 @@
+<h1>Availabilities</h1>
+
+<div id="availability">
+  <% @availabilities.each do |availability| %>
+    <div class="card-trip">
+      Band name: <%= availability.band.name %> | Start time: <%= availability.start_time %> | End time: <%= availability.end_time %>
+    </div>
+  <% end %>
+</div>
+<br><br>
+<%= link_to "Add availability", new_band_availability_path %>
+<br><br>

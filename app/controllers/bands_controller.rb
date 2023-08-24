@@ -13,7 +13,6 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new(band_params)
-    # TODO Replace User.first with current_user when available
     @band.user = current_user
     if @band.save
       redirect_to bands_path, notice: "Band created!"
