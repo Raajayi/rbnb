@@ -9,12 +9,14 @@
 require 'faker'
 require "open-uri"
 
+puts "Destroying all database records!"
 
-Availability.destroy_all
 Booking.destroy_all
 Band.destroy_all
 User.destroy_all
+Availability.destroy_all
 
+puts "Starting Seeding!"
 
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
@@ -58,5 +60,12 @@ Booking.create!(start_time: DateTime.new(2020, 2, 11, 5, 30, 9), end_time: DateT
 Booking.create!(start_time: DateTime.new(2020, 5, 9, 2, 15, 9), end_time: DateTime.new(2020, 5, 9, 6, 15, 9), user: User.third, band: Band.third)
 
 Availability.create!(start_time: "25-12-2018", end_time: "26-12-2018", band: Band.first)
+Availability.create!(start_time: "11-12-2018", end_time: "18-12-2018", band: Band.first)
+Availability.create!(start_time: "10-11-2018", end_time: "12-11-2018", band: Band.first)
+Availability.create!(start_time: "14-11-2018", end_time: "19-12-2018", band: Band.first)
+Availability.create!(start_time: "21-11-2018", end_time: "27-11-2018", band: Band.first)
+Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
 Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
 Availability.create!(start_time: "19-2-2019", end_time: "20-2-2019", band: Band.third)
+
+puts "Seeding complete!"

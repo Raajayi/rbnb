@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[index]
 
   resources :bands, except: :destroy do
+    resources :bookings, only: %i[new create]
     resources :availabilities
   end
 
