@@ -1,0 +1,19 @@
+<h1>Add Availability</h1>
+
+<%= simple_form_for([@band, @availability]) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :start_time, placeholder: "Insert start date" %>
+    <%= f.input :end_time, placeholder: "Insert end date" %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to availabilities", band_availabilities_path %>
+</div>
