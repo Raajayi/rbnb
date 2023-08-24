@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 puts "Destroying all database records!"
 
@@ -23,24 +24,36 @@ User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_nam
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
 
-Band.create!(name: "Pink Floyd",
-  description: "An English rock band that became famous in the 1960s and 1970s. They performed for more than 30 years, and have sold more than 200 million albums.",
-  genre: "Rock",
-  photo_url:"https://upload.wikimedia.org/wikipedia/id/thumb/f/f3/PinkFloyd-album-piperatthegatesofdawn.jpg/640px-PinkFloyd-album-piperatthegatesofdawn.jpg",
+band_one = Band.new(name: "One Direction",
+  description: "One Direction, often shortened to 1D, are an English-Irish pop boy band formed in London in 2010. The group is composed of Niall Horan, Liam Payne, Harry Styles, Louis Tomlinson, and previously Zayn Malik until his departure from the group in March 2015.",
+  genre: "Pop",
   user: User.first
 )
-Band.create!(name: "Chicago",
-    description: "One of the famous American jazz rock bands formed in Chicago, Illinois, in 1967.",
-    genre: "Jazz",
-    photo_url:"https://upload.wikimedia.org/wikipedia/commons/1/16/ChicagoCollage2-1000.jpg",
+
+file = URI.open("https://static.republika.co.id/uploads/images/inpicture_slide/one-direction-_130519230453-399.jpg")
+band_one.photo.attach(io: file, filename: "1d.png", content_type: "image/png")
+band_one.save!
+
+
+band_two = Band.new(name: "Westlife",
+    description: "Westlife are an Irish pop group formed in Dublin, Ireland in 1998. The group consists of members Shane Filan, Mark Feehily, Kian Egan, and Nicky Byrne. Brian McFadden was a member before leaving in 2004. The group disbanded in 2012 after 14 years and later reunited in 2018.",
+    genre: "Pop",
     user: User.second
   )
-Band.create!(name: "Radiohead",
-    description: "An English alternative rock band formed in Abingdon, Oxfordshire, in 1985.",
+
+file = URI.open("https://apicms.thestar.com.my/uploads/images/2023/02/03/1926465.jpg")
+band_two.photo.attach(io: file, filename: "westlife.png", content_type: "image/png")
+band_two.save!
+
+band_three = Band.create!(name: "Radiohead",
+    description: "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. The band consists of Thom Yorke (vocals, guitar, piano, keyboards); brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O'Brien (guitar, backing vocals); and Philip Selway (drums, percussion).",
     genre: "Alternative Rock",
-    photo_url: "https://live-production.wcms.abc-cdn.net.au/a6eb12a0e9689d04723c929c37816b6d?impolicy=wcms_crop_resize&cropH=506&cropW=759&xPos=71&yPos=0&width=862&height=575",
     user: User.third
   )
+
+file = URI.open("https://media.npr.org/assets/img/2019/06/11/gettyimages-80530629-f148b8e014c67ed40c18fa8d2f50aa5ee7d87d67-s1100-c50.jpg")
+band_three.photo.attach(io: file, filename: "radiohead.png", content_type: "image/png")
+band_three.save!
 
 Booking.create!(start_time: DateTime.new(2019, 8, 10, 4, 10, 9), end_time: DateTime.new(2019, 8, 10, 8, 10, 9), user: User.first, band: Band.first)
 Booking.create!(start_time: DateTime.new(2020, 2, 11, 5, 30, 9), end_time: DateTime.new(2020, 2, 11, 9, 30, 9), user: User.second, band: Band.second)

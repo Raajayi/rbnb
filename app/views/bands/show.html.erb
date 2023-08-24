@@ -1,8 +1,6 @@
-<p style="color: green"><%= notice %></p>
-
 <div class="card-trip">
 
-  <img src="<%= @band.photo_url %>" style="max-width: 400px" />
+  <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-trip-infos">
     <div>
       <h1><%= @band.name %></h1>
@@ -11,6 +9,10 @@
     </div>
   </div>
 </div>
+
+
+
+<%= link_to "View Availability", band_availabilities_path(@band) %>
 
 <div class="d-none">
 INSERT BOOKING FORM
