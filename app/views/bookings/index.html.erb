@@ -1,10 +1,8 @@
 <h1>My Bookings</h1>
 <% @bookings.each do |booking|%>
-
-
-<h3><%= booking.band.name %></h3>
-<%= image_tag booking.band.photo_url, height: 200, width: 200, crop: :fill%>
-<p>Booking Date: <%= booking.start_time.day %>/<%= booking.start_time.month %>/<%= booking.start_time.year %></p>
-<p>Start Time: <%= booking.start_time.hour %>:<%= booking.start_time.min %></p>
-<p>End Time: <%= booking.end_time.hour %>:<%= booking.end_time.min %></p>
+  <h3><%= booking.band.name %></h3>
+  <%= cl_image_tag booking.band.photo.key, height: 300, width: 400, crop: :fill %>
+  <p>Booking Date: <%= booking.start_time.day %>/<%= booking.start_time.month %>/<%= booking.start_time.year %></p>
+  <p>Start Time: <%= booking.start_time.hour %>:<%= booking.start_time.min %></p>
+  <p>End Time: <%= booking.end_time.hour %>:<%= booking.end_time.min %></p>
 <% end %>
