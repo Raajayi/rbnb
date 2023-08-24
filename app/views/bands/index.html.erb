@@ -1,7 +1,7 @@
 
 <div id="bands">
   <% @bands.each do |band| %>
-    <div class="card-trip">
+    <div class="card-trip mt-3">
       <img src="<%= band.photo_url %>" style="max-width: 400px" />
       <div class="card-trip-infos">
         <div>
@@ -9,10 +9,10 @@
           <p><%= band.genre %></p>
         </div>
       </div>
-      <span><%= link_to "View band", band %></span>
+      <span><%= link_to "View band", band, class: "btn btn-dark mb-3"%></span>
     </div>
   <% end %>
 </div>
 <br><br>
-<%= link_to "Add band", new_band_path %>
+<div><%= link_to "Add band", new_band_path, class: "btn btn-dark w-100" %></div>
 <br><br>
