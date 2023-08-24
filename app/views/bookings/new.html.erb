@@ -1,5 +1,6 @@
 <h1>Create a booking</h1>
-<h2>Booking form</h2>
+
+<%= link_to "Back to Band", band_path(@band) %>
 
 <%= simple_form_for [@band, @booking] do |f| %>
   <%= f.input :start_time %>

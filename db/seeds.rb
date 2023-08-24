@@ -8,10 +8,14 @@
 
 require 'faker'
 
+puts "Destroying all database records!"
+
 Booking.destroy_all
 Band.destroy_all
 User.destroy_all
+Availability.destroy_all
 
+puts "Starting Seeding!"
 
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
@@ -50,3 +54,5 @@ Availability.create!(start_time: "21-11-2018", end_time: "27-11-2018", band: Ban
 Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
 Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
 Availability.create!(start_time: "19-2-2019", end_time: "20-2-2019", band: Band.third)
+
+puts "Seeding complete!"
