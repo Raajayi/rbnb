@@ -11,10 +11,10 @@ require "open-uri"
 
 puts "Destroying all database records!"
 
+Availability.destroy_all
 Booking.destroy_all
 Band.destroy_all
 User.destroy_all
-Availability.destroy_all
 
 puts "Starting Seeding!"
 
