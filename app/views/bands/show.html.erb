@@ -1,6 +1,7 @@
 <div class="card-trip">
 
   <img src="<%= @band.photo_url %>" style="max-width: 400px" />
+  <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-trip-infos">
     <div>
       <h1><%= @band.name %></h1>

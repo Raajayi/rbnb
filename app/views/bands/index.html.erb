@@ -1,18 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-4">
 
-<div id="bands">
-  <% @bands.each do |band| %>
-    <div class="card-trip mt-3">
-      <img src="<%= band.photo_url %>" style="max-width: 400px" />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= band.name %></h2>
-          <p><%= band.genre %></p>
-        </div>
+
+      <div id="bands">
+        <% @bands.each do |band| %>
+          <div class="card-trip mt-3">
+            <%= cl_image_tag band.photo.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= band.name %></h2>
+                <p><%= band.genre %></p>
+              </div>
+            </div>
+            <span><%= link_to "View band", band, class: "btn btn-dark mb-3"%></span>
+          </div>
+        <% end %>
       </div>
-      <span><%= link_to "View band", band, class: "btn btn-dark mb-3"%></span>
+      <br><br>
+      <div><%= link_to "Add band", new_band_path, class: "btn btn-dark w-100" %></div>
+      <br><br>
+
     </div>
-  <% end %>
+  </div>
 </div>
-<br><br>
-<div><%= link_to "Add band", new_band_path, class: "btn btn-dark w-100" %></div>
-<br><br>
