@@ -1,0 +1,8 @@
+<h1>Create a booking</h1>
+<h2>Booking form</h2>
+
+<%= simple_form_for [@band, @booking] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.submit %>
+<% end %>
