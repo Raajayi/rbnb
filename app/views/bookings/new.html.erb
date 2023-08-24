@@ -3,13 +3,15 @@
 <%= link_to "Back to Band", band_path(@band) %>
 
 <%= simple_form_for [@band, @booking] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
+  <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker"}}%>
+  <%= f.input :end_time, as: :string, input_html: { data: { controller: "datepicker"}} %>
   <%= f.submit %>
 <% end %>
 
 <% @band.availabilities.each do |availability| %>
-  <p>Start time: <%= availability.start_time %></p>
-  <p>End time: <%= availability.end_time%></p>
+  <p>Start time: <%= availability.start_time.strftime("%B %d, %Y %I:%M %p") %></p>
+  <p>End time: <%= availability.end_time.strftime("%B %d, %Y %I:%M %p")%></p>
   <br>
 <% end %>
+
+<%# , html: { data: { controller: "datepicker"}} %>
