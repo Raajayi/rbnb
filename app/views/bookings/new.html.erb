@@ -6,3 +6,9 @@
   <%= f.input :end_time %>
   <%= f.submit %>
 <% end %>
+
+<% @band.availabilities.each do |availability| %>
+  <p>Start time: <%= availability.start_time %></p>
+  <p>End time: <%= availability.end_time%></p>
+  <br>
+<% end %>
