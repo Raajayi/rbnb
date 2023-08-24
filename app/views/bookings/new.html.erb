@@ -1,17 +1,19 @@
 <h1>Create a booking</h1>
 
-<%= link_to "Back to Band", band_path(@band) %>
 
-<%= simple_form_for [@band, @booking] do |f| %>
-  <%= f.input :start_time, as: :string, input_html: { data: { controller: "datepicker"}}%>
-  <%= f.input :end_time, as: :string, input_html: { data: { controller: "datepicker"}} %>
+<%= simple_form_for [@band, @booking], html: { data: { controller: "datepicker", datepicker_availabilties_value: @datepicker_options.to_json }} do |f| %>
+  <%= f.input :start_time, as: :string, input_html: { data: {"datepicker-target": "startTime"}} %>
+  <%# f.input :end_time, as: :string, input_html: { data: { controller: "datepicker"}} %>
+  <%= f.input :end_time, as: :string, input_html: { data: {datepicker_target: "endTime"}} %>
   <%= f.submit %>
 <% end %>
 
-<% @band.availabilities.each do |availability| %>
+<div class="d-none">
+<%# For later debugging %>
+  <% @band.availabilities.each do |availability| %>
   <p>Start time: <%= availability.start_time.strftime("%B %d, %Y %I:%M %p") %></p>
   <p>End time: <%= availability.end_time.strftime("%B %d, %Y %I:%M %p")%></p>
-  <br>
 <% end %>
-
-<%# , html: { data: { controller: "datepicker"}} %>
+</div>
+<br>
+<%= link_to "Back to Band", band_path(@band) %>

@@ -7,6 +7,14 @@ class BookingsController < ApplicationController
     @user = current_user
     @band = Band.find(params[:band_id])
     @booking = Booking.new
+    @datepicker_options = 'Array of hashes: Band.datepicker_options'
+
+    @datepicker_options = @band.availabilities.map do |availability|
+      {
+        from: availability.start_time,
+        to: availability.end_time
+      }
+    end
   end
 
   def create

@@ -3,12 +3,26 @@ import flatpickr from "flatpickr"
 
 // Connects to data-controller="datepicker"
 export default class extends Controller {
-  connect() {
-    console.log("App is live", this.element);
+  static values = {
+    availabilties: Array
+  }
 
-    flatpickr(this.element, {
+  static targets = ['startTime', 'endTime']
+
+  connect() {
+
+    flatpickr(this.startTimeTarget, {
       enableTime: true,
-      // dateFormat: "Y-m-d H:i",
+      minTime: "09:00",
+      maxTime: "23:00",
+      enable: this.availabiltiesValue
+    })
+
+    flatpickr(this.endTimeTarget, {
+      enableTime: true,
+      minTime: "09:00",
+      maxTime: "23:00",
+      enable: this.availabiltiesValue
     })
   }
 }
