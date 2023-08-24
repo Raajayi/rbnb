@@ -43,5 +43,10 @@ Booking.create!(start_time: DateTime.new(2020, 2, 11, 5, 30, 9), end_time: DateT
 Booking.create!(start_time: DateTime.new(2020, 5, 9, 2, 15, 9), end_time: DateTime.new(2020, 5, 9, 6, 15, 9), user: User.third, band: Band.third)
 
 Availability.create!(start_time: "25-12-2018", end_time: "26-12-2018", band: Band.first)
+Availability.create!(start_time: "11-12-2018", end_time: "18-12-2018", band: Band.first)
+Availability.create!(start_time: "10-11-2018", end_time: "12-11-2018", band: Band.first)
+Availability.create!(start_time: "14-11-2018", end_time: "19-12-2018", band: Band.first)
+Availability.create!(start_time: "21-11-2018", end_time: "27-11-2018", band: Band.first)
+Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
 Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
 Availability.create!(start_time: "19-2-2019", end_time: "20-2-2019", band: Band.third)
