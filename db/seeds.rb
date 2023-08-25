@@ -23,6 +23,7 @@ User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_nam
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123123")
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123123")
 User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123123")
+User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "123123")
 
 band_one = Band.new(name: "One Direction",
   description: "One Direction, often shortened to 1D, are an English-Irish pop boy band formed in London in 2010. The group is composed of Niall Horan, Liam Payne, Harry Styles, Louis Tomlinson, and previously Zayn Malik until his departure from the group in March 2015.",
@@ -55,17 +56,32 @@ file = URI.open("https://media.npr.org/assets/img/2019/06/11/gettyimages-8053062
 band_three.photo.attach(io: file, filename: "radiohead.png", content_type: "image/png")
 band_three.save!
 
+band_four = Band.create!(name: "INXS",
+  description: "INXS were an Australian rock band. The band became popular during the 1980s. They formed in Sydney, New South Wales, Australia in 1977. They did not get international attention until around 1982 when their third album came out.",
+  genre: "Rock",
+  user: User.fourth
+)
+
+file = URI.open("https://www.udiscovermusic.com/wp-content/uploads/2021/08/INXS-Getty-35237357-copy-1000x600.jpg")
+band_four.photo.attach(io: file, filename: "inxs.png", content_type: "image/png")
+band_four.save!
+
 Booking.create!(start_time: DateTime.new(2019, 8, 10, 4, 10, 9), end_time: DateTime.new(2019, 8, 10, 8, 10, 9), user: User.first, band: Band.first)
 Booking.create!(start_time: DateTime.new(2020, 2, 11, 5, 30, 9), end_time: DateTime.new(2020, 2, 11, 9, 30, 9), user: User.second, band: Band.second)
 Booking.create!(start_time: DateTime.new(2020, 5, 9, 2, 15, 9), end_time: DateTime.new(2020, 5, 9, 6, 15, 9), user: User.third, band: Band.third)
 
-Availability.create!(start_time: "25-12-2018", end_time: "26-12-2018", band: Band.first)
-Availability.create!(start_time: "11-12-2018", end_time: "18-12-2018", band: Band.first)
-Availability.create!(start_time: "10-11-2018", end_time: "12-11-2018", band: Band.first)
-Availability.create!(start_time: "14-11-2018", end_time: "19-12-2018", band: Band.first)
-Availability.create!(start_time: "21-11-2018", end_time: "27-11-2018", band: Band.first)
-Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
-Availability.create!(start_time: "10-1-2019" , end_time: "11-1-2019", band: Band.second)
-Availability.create!(start_time: "19-2-2019", end_time: "20-2-2019", band: Band.third)
+Availability.create!(start_time: "1-8-2023", end_time: "18-8-2023", band: Band.first)
+Availability.create!(start_time: "23-8-2023", end_time: "30-8-2023", band: Band.first)
+Availability.create!(start_time: "1-9-2023", end_time: "20-9-2023", band: Band.first)
+Availability.create!(start_time: "14-7-2023", end_time: "19-7-2023", band: Band.first)
+Availability.create!(start_time: "1-7-2023", end_time: "7-7-2023", band: Band.first)
+Availability.create!(start_time: "1-8-2023" , end_time: "11-8-2023", band: Band.second)
+Availability.create!(start_time: "20-8-2023" , end_time: "29-8-2023", band: Band.second)
+Availability.create!(start_time: "20-7-2023" , end_time: "29-7-2023", band: Band.second)
+Availability.create!(start_time: "19-8-2023", end_time: "27-8-2023", band: Band.third)
+Availability.create!(start_time: "5-8-2023", end_time: "13-8-2023", band: Band.third)
+Availability.create!(start_time: "3-9-2023", end_time: "20-9-2023", band: Band.third)
+Availability.create!(start_time: "5-8-2023", end_time: "13-8-2023", band: Band.fourth)
+Availability.create!(start_time: "3-9-2023", end_time: "20-9-2023", band: Band.fourth)
 
 puts "Seeding complete!"
