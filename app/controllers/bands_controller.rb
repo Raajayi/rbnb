@@ -6,6 +6,7 @@ class BandsController < ApplicationController
     @bands = Band.all
   end
   def show
+    # raise
   end
 
   def new
