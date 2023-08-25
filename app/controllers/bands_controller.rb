@@ -4,6 +4,7 @@ class BandsController < ApplicationController
 
   def index
     @bands = Band.all
+    @user = current_user
   end
   def show
     # raise
