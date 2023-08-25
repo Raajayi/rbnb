@@ -9,8 +9,9 @@
   <% end %>
 </div>
 <br><br>
-<% if @band.user = current_user %>
-  <%= link_to "Edit Availability", new_band_availability_path %>
+
+<% if @band.user == current_user %>
+  <%= link_to "Add Availability", new_band_availability_path %>
 <% end %>
 
 <br><%= link_to "Back to Band", band_path(@band) %>
