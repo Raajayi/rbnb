@@ -6,6 +6,7 @@
       <div id="bands">
         <% @bands.each do |band| %>
           <div class="card-trip mt-3">
+            <%= 'My band' if current_user == band.user %>
             <%= cl_image_tag band.photo.key, height: 300, width: 400, crop: :fill %>
             <div class="card-trip-infos">
               <div>

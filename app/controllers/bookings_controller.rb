@@ -33,6 +33,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def schedule
+    @band = Band.find(params[:band_id])
+  end
+
   private
 
   def booking_params
