@@ -1,12 +1,28 @@
-<h1>Create a booking</h1>
 
-
-<%= simple_form_for [@band, @booking], html: { data: { controller: "datepicker", datepicker_availabilties_value: @datepicker_options.to_json }} do |f| %>
-  <%= f.input :start_time, as: :string, input_html: { data: {"datepicker-target": "startTime"}} %>
-  <%# f.input :end_time, as: :string, input_html: { data: { controller: "datepicker"}} %>
-  <%= f.input :end_time, as: :string, input_html: { data: {datepicker_target: "endTime"}} %>
-  <%= f.submit %>
-<% end %>
+ <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-4">
+      <div>
+        <%= link_to band_path(@band) do %>
+          <i class="fa-solid fa-arrow-left text-dark"></i>
+        <% end %>
+      </div>
+      <h1>Create a booking</h1>
+      <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+            <h1><%= @band.name %></h1>
+          </div>
+        </div>
+      <%= simple_form_for [@band, @booking], html: { data: { controller: "datepicker", datepicker_availabilties_value: @datepicker_options.to_json }} do |f| %>
+        <%= f.input :start_time, as: :string, input_html: { data: {"datepicker-target": "startTime"}} %>
+        <%# f.input :end_time, as: :string, input_html: { data: { controller: "datepicker"}} %>
+        <%= f.input :end_time, as: :string, input_html: { data: {datepicker_target: "endTime"}} %>
+        <%= f.button :submit, "Book now", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="d-none">
 <%# For later debugging %>
@@ -16,4 +32,3 @@
 <% end %>
 </div>
 <br>
-<%= link_to "Back to Band", band_path(@band) %>
