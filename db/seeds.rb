@@ -46,7 +46,7 @@ file = URI.open("https://apicms.thestar.com.my/uploads/images/2023/02/03/1926465
 band_two.photo.attach(io: file, filename: "westlife.png", content_type: "image/png")
 band_two.save!
 
-band_three = Band.create!(name: "Radiohead",
+band_three = Band.new(name: "Radiohead",
     description: "Radiohead are an English rock band formed in Abingdon, Oxfordshire, in 1985. The band consists of Thom Yorke (vocals, guitar, piano, keyboards); brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O'Brien (guitar, backing vocals); and Philip Selway (drums, percussion).",
     genre: "Alternative Rock",
     user: User.third
@@ -56,7 +56,7 @@ file = URI.open("https://media.npr.org/assets/img/2019/06/11/gettyimages-8053062
 band_three.photo.attach(io: file, filename: "radiohead.png", content_type: "image/png")
 band_three.save!
 
-band_four = Band.create!(name: "INXS",
+band_four = Band.new(name: "INXS",
   description: "INXS were an Australian rock band. The band became popular during the 1980s. They formed in Sydney, New South Wales, Australia in 1977. They did not get international attention until around 1982 when their third album came out.",
   genre: "Rock",
   user: User.fourth
