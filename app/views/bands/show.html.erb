@@ -6,7 +6,7 @@
           <i class="fa-solid fa-arrow-left text-dark"></i>
         <% end %>
       </div>
-      
+
       <div class="card-trip">
 
   <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
@@ -24,11 +24,18 @@
   <%= link_to "View Availability", band_availabilities_path(@band) %>
 <% end %>
 
+
+<br>
+
+<div>
+  <%= link_to "Book band", new_band_booking_path(@band) %>
+</div>
+
       <%# <div class="d-none">
       INSERT BOOKING FORM
       </div> %>
       <br><br>
-  
+
     </div>
   </div>
 </div>
