@@ -4,8 +4,13 @@ class BandsController < ApplicationController
 
   def index
     @bands = Band.all
-    @user = current_user
+    if current_user.nil?
+      @user_first_name = "Friend"
+    else
+      @user_first_name = current_user.first_name.nil? ? "Friend" : current_user.first_name
+    end
   end
+
   def show
 
   end
