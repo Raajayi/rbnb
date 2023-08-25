@@ -11,9 +11,13 @@
 <br><br>
 
 <% if @band.user == current_user %>
-  <%= link_to "Add Availability", new_band_availability_path %>
+  <%= link_to "Add Availability", new_band_availability_path, style: "text-decoration: none;
+  margin: 10px 20px;
+  display: inline-block; color: black" %>
 <% end %>
 
-<br><%= link_to "Back to Band", band_path(@band) %>
+<br><%= link_to "Back to Band", band_path(@band), style: "text-decoration: none;
+  margin: 10px 20px;
+  display: inline-block; color: black" %>
 
 <br><br>
