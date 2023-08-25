@@ -9,23 +9,20 @@
       
       <div class="card-trip">
 
-        <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-            <h1><%= @band.name %></h1>
-            <p><%= @band.genre %></p>
-            <p><%= @band.description %></p>
-          </div>
-        </div>
-      </div>
+  <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-trip-infos">
+    <div>
+      <h1><%= @band.name %></h1>
+      <strong>US$100/hr</strong>
+      <p><%= @band.genre %></p>
+      <p><%= @band.description %></p>
+    </div>
+  </div>
+</div>
 
-      <%= link_to "Edit Availability", band_availabilities_path(@band) %>
-       <div>
-        <%= link_to "Book this band", new_band_booking_path(@band), class: "btn btn-dark w-100" %>
-        <%#= link_to "Edit this band", edit_band_path(@band) %>
-      </div>
-
-
+<% if @band.user == current_user %>
+  <%= link_to "View Availability", band_availabilities_path(@band) %>
+<% end %>
 
       <%# <div class="d-none">
       INSERT BOOKING FORM
