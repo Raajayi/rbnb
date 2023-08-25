@@ -1,4 +1,13 @@
-<div class="card-trip">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-4">
+      <div>
+        <%= link_to bands_path do %>
+          <i class="fa-solid fa-arrow-left text-dark"></i>
+        <% end %>
+      </div>
+      
+      <div class="card-trip">
 
   <%= cl_image_tag @band.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-trip-infos">
@@ -15,15 +24,11 @@
   <%= link_to "View Availability", band_availabilities_path(@band) %>
 <% end %>
 
-
-
-
-<div class="d-none">
-INSERT BOOKING FORM
-</div>
-<br><br>
-<div>
-  <%= link_to "Back to bands", bands_path %>
-  <%= link_to "Book this band", new_band_booking_path(@band) %>
-  <%#= link_to "Edit this band", edit_band_path(@band) %>
+      <%# <div class="d-none">
+      INSERT BOOKING FORM
+      </div> %>
+      <br><br>
+  
+    </div>
+  </div>
 </div>
