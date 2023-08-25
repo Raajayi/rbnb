@@ -4,7 +4,7 @@
     <div class="col-12 col-lg-4">
       <div>
         <%= link_to band_path(@band) do %>
-          <i class="fa-solid fa-arrow-left text-dark"></i>
+          <i class="fa-solid fa-arrow-left text-light"></i>
         <% end %>
       </div>
       <h1>Create a booking</h1>
@@ -18,7 +18,7 @@
         <%= f.input :start_time, as: :string, input_html: { data: {"datepicker-target": "startTime"}} %>
         <%# f.input :end_time, as: :string, input_html: { data: { controller: "datepicker"}} %>
         <%= f.input :end_time, as: :string, input_html: { data: {datepicker_target: "endTime"}} %>
-        <%= f.button :submit, "Book now", class: "btn btn-primary" %>
+        <%= f.button :submit, "Book now", class: "btn btn-dark mb-3" %>
       <% end %>
     </div>
   </div>

@@ -7,8 +7,8 @@
 
       <div id="bands">
         <% @bands.each do |band| %>
-          <div class="card-trip mt-3">
-            <%= 'My band' if current_user == band.user %>
+          <div class="card-trip mt-3" style="position: relative">
+            <%= '<span class="selector">My band</span>'.html_safe if current_user == band.user %>
             <%= cl_image_tag band.photo.key, height: 300, width: 400, crop: :fill %>
             <div class="card-trip-infos">
               <div>
@@ -17,7 +17,7 @@
               </div>
               <strong>US$100/hr</strong>
             </div>
-            <span><%= link_to "View band", band, class: "btn btn-dark mb-3"%></span>
+            <span style="margin-left: 15px"><%= link_to "View band", band, class: "btn btn-dark mb-3"%></span>
           </div>
         <% end %>
       </div>

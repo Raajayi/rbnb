@@ -3,7 +3,7 @@
     <div class="col-12 col-lg-4">
       <div>
         <%= link_to bands_path do %>
-          <i class="fa-solid fa-arrow-left text-dark"></i>
+          <i class="fa-solid fa-arrow-left text-light"></i>
         <% end %>
       </div>
 
@@ -29,7 +29,7 @@
 <br>
 
 <div>
-  <%= link_to "Book band", new_band_booking_path(@band) %>
+  <%= link_to "Book band", new_band_booking_path(@band), class: "btn btn-dark mb-3" %>
 </div>
 
 <br><br>
