@@ -27,8 +27,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
 
     if @booking.save
-      # TODO: Redirect to MY BOOKINGS PAGE
-      redirect_to band_path(@band), notice: "Booking Created!"
+      redirect_to bookings_path, notice: "Booking Created!"
     else
       render :new, status: :unprocessable_entity, notice: "Could not create booking"
     end
