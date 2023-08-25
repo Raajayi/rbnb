@@ -1,7 +1,9 @@
-<h1>My Bookings</h1>
-<% @bookings.each do |booking|%>
-  <h3><%= booking.band.name %></h3>
-  <%= cl_image_tag booking.band.photo.key, height: 300, width: 400, crop: :fill %>
+
+<%#= @band.bookings.count %>
+
+<h1>Schedule</h1>
+<!--h3><%#= @band.name %></h3-->
+<% @band.bookings.each do |booking|%>
   <p>Booking Date: <%= booking.start_time.strftime("%d of %B, %Y") %></p>
   <p>Start Time: <%= booking.start_time.strftime("%I:%M %p") %></p>
   <p>End Time: <%= booking.end_time.strftime("%I:%M %p") %></p>

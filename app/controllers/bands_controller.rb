@@ -7,7 +7,7 @@ class BandsController < ApplicationController
     @user = current_user
   end
   def show
-    # raise
+
   end
 
   def new

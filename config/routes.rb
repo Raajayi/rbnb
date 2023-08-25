@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[index]
 
   resources :bands, except: :destroy do
+    get '/schedule', to: 'bookings#schedule'
     resources :bookings, only: %i[new create]
     resources :availabilities
   end

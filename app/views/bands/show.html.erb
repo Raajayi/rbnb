@@ -22,6 +22,7 @@
 
 <% if @band.user == current_user %>
   <%= link_to "View Availability", band_availabilities_path(@band) %>
+  <%= link_to "View Schedule", band_schedule_path(@band) %>
 <% end %>
 
 
@@ -31,10 +32,7 @@
   <%= link_to "Book band", new_band_booking_path(@band) %>
 </div>
 
-      <%# <div class="d-none">
-      INSERT BOOKING FORM
-      </div> %>
-      <br><br>
+<br><br>
 
     </div>
   </div>
